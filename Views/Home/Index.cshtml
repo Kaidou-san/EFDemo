@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>All The Games</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Release Date</th>
+            <th>Action</th>
+        </tr>
+        @{
+            foreach(Game g in ViewBag.AllGames)
+            {
+                <tr>
+                    <td><a href="onegame/@g.GameId">@g.Title</a></td>
+                    <td>$@g.Price</td>
+                    <td>@g.Rating</td>
+                    <td>@g.ReleaseDate</td>
+                    <td><a href="delete/@g.GameId">Delete</a> | <a href="edit/@g.GameId">Update</a></td>
+                </tr>
+            }
+        }
+    </table>
+</div>
